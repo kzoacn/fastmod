@@ -13,18 +13,24 @@ bool isprime(int x){
 inline LL fastmod(LL x,int &k,int &b,int &p){
 	const LL mask=(1LL<<k)-1;
 	
-	while(x>=2LL*p){
+		x=(x>>k)*b+(x&mask);
+		x=(x>>k)*b+(x&mask);
+		x=(x>>k)*b+(x&mask);
+		x=(x>>k)*b+(x&mask);
+		x=(x>>k)*b+(x&mask);
+		x=(x>>k)*b+(x&mask);
+		x=(x>>k)*b+(x&mask);
+		x=(x>>k)*b+(x&mask);
 		x=(x>>k)*b+(x&mask);
 
-	}
-	return x>=p ? x-p : x;
+	return x;
 }
 
 LL rnd(){
 	return 1LL*rand()<<30 | rand();
 }
 
-const int TIMES=1000000;
+const int TIMES=100;
 void check(int p){
 	int T=TIMES;
 	int k,b;	
@@ -61,8 +67,7 @@ int main(){
 
 	check(INT_MAX);
 
-	return 0;
-
+return 0;
 	for(int i=13;;i++){
 		if(isprime(i)){
 			check(i);	
